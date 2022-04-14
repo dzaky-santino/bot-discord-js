@@ -1,7 +1,7 @@
 const { Client } = require("discord.js");
 const arrayOfStatus = [
     'Bot Official Of Rumah Kedua.',
-    '/music',
+    '/helps',
 ]
 
 module.exports = {
