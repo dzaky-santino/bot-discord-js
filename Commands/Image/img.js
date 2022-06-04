@@ -3,19 +3,19 @@ const { Canvas } = require('canvacord');
 
 module.exports = {
     name: "img",
-    description: "Manipulasi Gambar",
+    description: "Image Manipulation",
     usage: "/img",
     permission: "ATTACH_FILES",
     options: [
         {
             name: "target",
-            description: "Pilih Target",
+            description: "Choose Target",
             type: "USER",
             required: true
         },
         {
             name: "image",
-            description: "Pilih Jenis Filter Gambar.",
+            description: "Select Image Filter Type",
             type: "STRING",
             required: true,
             choices: [

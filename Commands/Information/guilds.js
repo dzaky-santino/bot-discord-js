@@ -2,7 +2,7 @@ const { CommandInteraction, Client, MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "guilds",
-    description: "Menampilkan Server Yang Ada Bot Ini",
+    description: "Showing Servers That Have This Bot",
     usage: "/guilds",
 
     /**

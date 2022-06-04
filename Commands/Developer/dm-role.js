@@ -5,20 +5,20 @@ function delay(time) {return new Promise((resolve) => setTimeout(resolve, time))
 
 module.exports = {
   name: "dm-role",
-  description: "Kirim Pesan Kepada Pengguna Jika Mereka Memiliki Peran Tertentu.",
+  description: "Send Message To Users If They Have A Specific Role.",
   usage: "/dm-role",
   disabled: false,
   permission: "ADMINISTRATOR",
   options: [
      {
       name: "role",
-      description: "Pilih Role",
+      description: "Choose Role",
       type: "ROLE",
       required: true,
     },
     {
       name: "message",
-      description: "Berikan Pesan Yang Anda Ingin Kirim",
+      description: "Give The Message You Want To Send",
       type: "STRING",
       required: true,
     },
@@ -35,7 +35,7 @@ module.exports = {
     let memberIds = members.map(m => m.id);
 
     if(memberIds.length == 0)
-      return interaction.reply({embeds: [new MessageEmbed().setColor("RED").setDescription(`${role} Telah Diberikan Kepada 0 Member, Jadi Bot Tidak Mencoba Untuk DM siapa pun.`)], ephemeral: true})
+      return interaction.reply({embeds: [new MessageEmbed().setColor("RED").setDescription(`${role} Has Been Given To 0 Members, So The Bot Is Not Trying To DM anyone. <:icons_exclamation:859388127885131796>`)], ephemeral: true})
 
     const Embed = new MessageEmbed().setColor("AQUA")
 
@@ -44,7 +44,7 @@ module.exports = {
     var failedMembers = 0
     var failedMembersList = []
 
-    await interaction.reply({embeds: [new MessageEmbed().setColor("AQUA").setDescription(`**Mengirim DM Ke Semua Member Dengan Role ${role}**.\n\n> DM Sukses: ${successfulMembers}\n\n> DM Gagal: ${failedMembers}\n\n> Member Terbaru: *Mulai dms dalam 5 detik.*`)], fetchReply: true})
+    await interaction.reply({embeds: [new MessageEmbed().setColor("AQUA").setDescription(`**Send Message to All Members With Selected Role ${role}**.\n\n> Successful DMs: ${successfulMembers} <:icons_Correct:859388130411282442>\n\n> DM Failed: ${failedMembers} <:icons_Wrong:859388130636988436>\n\n> Newest Member: *Start dms in 5 seconds.*`)], fetchReply: true})
 
     await delay(5000) //This waits 5 seconds before attempting to DM any members. If you want to change it it is in milliseconds so 5000 = 5 seconds.
 
@@ -52,7 +52,7 @@ module.exports = {
       var member = client.users.cache.get(memberIds[i]);
 
       try {
-        var sendMessage = await member.send({embeds: [new MessageEmbed().setColor("AQUA").setTitle("Isi Pesan 📨").setDescription(`${message}`).addFields({name: "Server", value: `${interaction.guild.name}`, inline: true}, {name: "Role", value: `${role.name}`, inline: true}, {name: "Pengirim Pesan", value: `${interaction.member}`, inline: true})]})
+        var sendMessage = await member.send({embeds: [new MessageEmbed().setColor("AQUA").setTitle("Message Content 📨").setDescription(`${message}`).addFields({name: "Server", value: `${interaction.guild.name}`, inline: true}, {name: "Role", value: `${role.name}`, inline: true}, {name: "Message Sender", value: `${interaction.member}`, inline: true})]})
         successfulMembers += 1
         successfulMembersList.push(member)
       
@@ -67,7 +67,7 @@ module.exports = {
       // }
       // console.log(error)
 
-      interaction.editReply({embeds: [Embed.setDescription(`**Mengirim DM Ke Semua Member Dengan Role ${role}**\n\n> DM Sukses: ${successfulMembers}\n\n> DM Gagal: ${failedMembers}\n\n> Member Terbaru: ${member}`)]})
+      interaction.editReply({embeds: [Embed.setDescription(`**Send Message to All Members With Selected Role ${role}**\n\n> Successful DMs: ${successfulMembers} <:icons_Correct:859388130411282442>\n\n> DM Failed: ${failedMembers} <:icons_Wrong:859388130636988436>\n\n> Newest Member: ${member}`)]})
     
       await delay(3000) //This waits 3 seconds before DMing the next member. If you want to change it it is in milliseconds so 3000 = 3 seconds.
     }
@@ -87,6 +87,6 @@ module.exports = {
       successfulMembersMessage = successfulMembersSourcebin.url
     }
 
-    interaction.editReply({content: `${interaction.member}`, embeds: [Embed.setDescription(`**Selesai Mengirim DM Ke Semua Member Dengan Role ${role}**`).addFields({name: "DM Sukses", value: `${successfulMembers}`}, {name: "DM Gagal", value: `${failedMembers}`, inline: true}, {name: "Successful members", value: `${successfulMembersMessage}`}, {name: "Failed members", value: `${failedMembersMessage}`})]})
+    interaction.editReply({content: `${interaction.member}`, embeds: [Embed.setDescription(`**Done Sending DM To All Members With Selected Role ${role}**`).addFields({name: "Successful DMs <:icons_Correct:859388130411282442>", value: `${successfulMembers}`}, {name: "DM Failed <:icons_Wrong:859388130636988436>", value: `${failedMembers}`, inline: true}, {name: "Successful members <:icons_Correct:859388130411282442>", value: `${successfulMembersMessage}`}, {name: "Failed members <:icons_Wrong:859388130636988436>", value: `${failedMembersMessage}`})]})
   },
 };

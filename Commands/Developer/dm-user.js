@@ -3,18 +3,18 @@ const config = require("../../config.json");
 
 module.exports = {
   name: "dm-user",
-  description: "Kirim Pesan Ke Member Dengan Bot",
+  description: "Send Messages To Members With Bots",
   usage: "/dm-user",
   options: [
     {
       name: "target",
-      description: "Pilih Target",
+      description: "Choose Target",
       type: "USER",
       required: true,
     },
     {
       name: "message",
-      description: "Berikan Pesan Yang Anda Inginkan Untuk Dikirim Oleh Bot.",
+      description: "Give the Message You Want The Bot To Send.",
       type: "STRING",
       required: true,
     },
@@ -30,7 +30,7 @@ module.exports = {
 
     if (!config.OwnerID.includes(member.id)) {
         return interaction.reply({
-          content: "<a:Silang:944148235600146453> Anda Tidak Memiliki Izin",
+          content: "You Don't Have Permission <:icons_Wrong:859388130636988436>",
         });
       }
 
@@ -38,7 +38,7 @@ module.exports = {
       return interaction.reply({
         embeds: [
           new MessageEmbed()
-            .setDescription(`Kamu Tidak Bisa **DM** ${client.user}.`)
+            .setDescription(`You Can't **DM** ${client.user} <:icons_Wrong:859388130636988436>`)
             .setColor("#RED"),
         ],
         ephemeral: true,
@@ -48,7 +48,7 @@ module.exports = {
       try {
         await target.send(say)
         return interaction.reply({
-          content: "Pesan Terkirim",
+          content: "Message sent",
           ephemeral: true,
         });
       } catch (err) {

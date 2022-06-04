@@ -13,7 +13,7 @@ module.exports = {
     const { guild, member } = interaction;
     if (!config.OwnerID.includes(member.id)) {
       return interaction.reply({
-        content: "<a:Silang:944148235600146453> Anda Tidak Memiliki Izin Untuk Restart Bot",
+        content: "You Don't Have Permission To Restart Bot <:icons_Wrong:859388130636988436>",
       });
     }
     await interaction

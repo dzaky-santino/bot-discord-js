@@ -2,12 +2,12 @@ const { CommandInteraction, MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "banner",
-    description: "Membuka Banner User",
+    description: "Viewing User Banner",
     usage: "/banner",
     options: [
         {
             name: "target",
-            description: "Pilih Target",
+            description: "Choose Target",
             type: "USER",
             required: false
         }
