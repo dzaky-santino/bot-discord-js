@@ -3,6 +3,7 @@ const { CommandInteraction, Client, MessageEmbed } = require("discord.js");
 module.exports = {
     name: "avatar",
     description: "Viewing User Avatar",
+    permission: "SEND_MESSAGES",
     usage: "/avatar",
     options: [
         {

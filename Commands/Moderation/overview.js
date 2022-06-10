@@ -2,18 +2,18 @@ const { CommandInteraction, Client, Message, MessageEmbed } = require('discord.j
 
 module.exports = {
     name: "overview",
-    description: "Memperbarui Gambaran Server Secara Otomatis",
+    description: "Update Server Overview Automatically",
     usage: "/overview",
     permission: "ADMINISTRATOR",
     options: [
         {
             name: 'member',
-            description: 'Pilih Channel Untuk Tampilan Jumlah Member',
+            description: 'Select Channel To Display Number Of Members',
             type: 'CHANNEL',
             required: true,
         }, {
             name: 'channel',
-            description: 'Pilih Channel Untuk Tampilan Jumlah Channel',
+            description: 'Select Channel To Display The Number Of Channels',
             type: 'CHANNEL',
             required: false,
         }

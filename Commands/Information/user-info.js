@@ -4,7 +4,8 @@ require('moment/locale/id')
 
 module.exports = {
     name: "user-info",
-    description: "Menampilkan Info User",
+    description: "Displaying User Info",
+    permission: "SEND_MESSAGES",
     usage: "/userinfo",
     options: [
         {

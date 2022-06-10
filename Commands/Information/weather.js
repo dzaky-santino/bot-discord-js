@@ -3,12 +3,13 @@ const weather = require('weather-js');
 
 module.exports = {
     name: "weather",
-    description: "Info Cuaca",
+    description: "Weather Info",
+    permission: "SEND_MESSAGES",
     usage: "/weather",
     options: [
         {
             name: "location",
-            description: "Enter a location",
+            description: "Enter A Location",
             type: "STRING",
             required: true
         }
@@ -24,7 +25,7 @@ module.exports = {
         
         const errEmbed = new MessageEmbed()
         .setColor("RED")
-        .setDescription("**⛔ Anda tidak menentukan lokasi yang valid**")
+        .setDescription("**⛔ You Did Not Specify A Valid Location**")
 
         if (result === undefined || result.length === 0) return interaction.reply({embeds: [errEmbed]});
         let current = result[0].current
@@ -32,15 +33,15 @@ module.exports = {
 
 
         const embed = new MessageEmbed()
-      .setTitle(`Menampilkan Info Cuaca untuk ${current.observationpoint}`)
+      .setTitle(`Show Weather Info for ${current.observationpoint}`)
       .setDescription(current.skytext)
       .setThumbnail(current.imageUrl)
       .setColor("ORANGE")
       .setTimestamp()
-      .addField("Suhu", current.temperature + "°C", true)
-      .addField("Kecepatan Angin", current.winddisplay, true)
-      .addField("Kelembaban", `${current.humidity}%`, true)
-      .addField("Zona Waktu", `UTC${location.timezone}`, true)
+      .addField("Temperature", current.temperature + "°C", true)
+      .addField("Wind Velocity", current.winddisplay, true)
+      .addField("Humidity", `${current.humidity}%`, true)
+      .addField("Time Zone", `UTC${location.timezone}`, true)
 
       interaction.reply({embeds: [embed]})
     })

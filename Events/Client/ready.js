@@ -12,7 +12,7 @@ module.exports = {
      * @param {Client} client 
      */
     execute(client) {
-        console.log("BOT ONLINE");
+        console.log("The Bot Is Now Online")
         setInterval(() => {
             client.user.setPresence({ activities: [{ name: arrayOfStatus[Math.floor(Math.random() * arrayOfStatus.length)]}], status: "idle"})
         }, 4000)

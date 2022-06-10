@@ -2,19 +2,19 @@ const { MessageEmbed, Message } = require("discord.js");
 
 module.exports = {
   name: "send-message",
-  description: "Kirim Pesan Ke Channel Tertentu.",
+  description: "Send Messages To Specific Channels",
   usage: "/send-message",
   permission: "MANAGE_MESSAGES",
   options: [
     {
       name: "message",
-      description: "The message that you want to be sent.",
+      description: "The Message That You Want To Be Sent",
       type: "STRING",
       required: true,
     },
     {
       name: "channel",
-      description: "Select a channel to send the embed to.",
+      description: "Select A Channel To Send The Embed To",
       type: "CHANNEL",
       required: false,
       channelTypes: ["GUILD_TEXT"],

@@ -2,19 +2,19 @@ const { CommandInteraction, MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "clear",
-    description: "Menghapus Sejumlah Pesan Tertentu Dari Channel Atau Member",
+    description: "Deleting A Certain Number Of Messages From A Channel Or Member",
     permission: "MANAGE_MESSAGES",
     usage: "/clear",
     options: [
         {
             name: "amount",
-            description: "Pilih Jumlah Pesan yang Akan Dihapus Dari Channel Atau Member",
+            description: "Select The Number Of Messages To Be Deleted From The Channel Or Member",
             type: "NUMBER",
             required: true
         },
         {
             name: "target",
-            description: "Pilih Member Untuk Menghapus Pesan Mereka",
+            description: "Select Members To Delete Their Messages",
             type: "USER",
             required: false
         }
@@ -44,12 +44,12 @@ module.exports = {
                 }
             })
             await channel.bulkDelete(filtered, true).then(messages => {
-                Response.setDescription(`${messages.size} Pesan Dihapus Dari ${Target} <a:sparkle:797761560474157106>`);
+                Response.setDescription(`${messages.size} Message Removed From ${Target} `);
                 interaction.reply({embeds: [Response]});
             })
         } else {
             await channel.bulkDelete(Amount, true).then(messages => {
-                Response.setDescription(`${messages.size} Pesan Dihapus Dari Channel Ini <a:sparkle:797761560474157106>`);
+                Response.setDescription(`${messages.size} Messages Removed From This Channel <a:sparkle:797761560474157106>`);
                 interaction.reply({embeds: [Response]});
             })
         }

@@ -4,6 +4,7 @@ const config = require("../../config.json");
 module.exports = {
   name: "dm-user",
   description: "Send Messages To Members With Bots",
+  permission: "ADMINISTRATOR",
   usage: "/dm-user",
   options: [
     {

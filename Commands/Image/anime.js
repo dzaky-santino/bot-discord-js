@@ -4,12 +4,13 @@ const axios = require("axios");
 
 module.exports = { 
     name: 'anime', 
-    description: 'Dapatkan Beberapa Gif, Gambar, dan kalimat dari karakter Anime',
+    description: 'Get Some Gifs, Images And Sentences Of Anime Characters',
+    permission: "SEND_MESSAGES",
     usage: "/anime",
     options: [
         {
             name: "target",
-            description: "Pilih Target",
+            description: "Choose Target",
             type: "STRING",
             required: true,
             choices: [

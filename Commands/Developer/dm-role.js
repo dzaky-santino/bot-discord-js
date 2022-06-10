@@ -7,7 +7,6 @@ module.exports = {
   name: "dm-role",
   description: "Send Message To Users If They Have A Specific Role.",
   usage: "/dm-role",
-  disabled: false,
   permission: "ADMINISTRATOR",
   options: [
      {
@@ -35,7 +34,7 @@ module.exports = {
     let memberIds = members.map(m => m.id);
 
     if(memberIds.length == 0)
-      return interaction.reply({embeds: [new MessageEmbed().setColor("RED").setDescription(`${role} Has Been Given To 0 Members, So The Bot Is Not Trying To DM anyone. <:icons_exclamation:859388127885131796>`)], ephemeral: true})
+      return interaction.reply({embeds: [new MessageEmbed().setColor("RED").setDescription(`${role} Has Been Given To 0 Members, So The Bot Is Not Trying To DM anyone.`)], ephemeral: true})
 
     const Embed = new MessageEmbed().setColor("AQUA")
 

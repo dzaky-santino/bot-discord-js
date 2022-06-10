@@ -7,19 +7,19 @@ module.exports = {
 	usage: "/ban",
 	options: [{
 			name: "user",
-			description: "Pilih Member Untuk Di Ban",
+			description: "Choose Member To Ban",
 			type: "USER",
 			required: true
 		},
 		{
 			name: "reason",
-			description: "Berikan Alasan Member Di Ban",
+			description: "Give A Reason For The Member To Be Banned",
 			type: "STRING",
 			required: true
 		},
 		{
 			name: "messages",
-			description: "Berikan Jumlah Hari Untuk Menghapus Pesan Member",
+			description: "Give Number Ff Days To Delete Member Message",
 			type: "STRING",
 			required: true,
 			choices: [{
@@ -93,7 +93,7 @@ module.exports = {
 			});
 		target.send(
 			new MessageEmbed()
-			.setTitle(`<a:righter_arrow:797761109846523914> You've Been Banned From ${interaction.guild.name}!`)
+			.setTitle(` You've Been Banned From ${interaction.guild.name}!`)
 			.setColor("RED")
 			.setTimestamp()
 			.addFields({

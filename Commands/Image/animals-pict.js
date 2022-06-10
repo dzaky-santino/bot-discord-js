@@ -4,6 +4,7 @@ const axios = require("axios");
 module.exports = {
     name: "animals-pict",
     description: "Gives You A Picture Of An Animal.",
+    permission: "SEND_MESSAGES",
     options: [
         {
         name: "name",

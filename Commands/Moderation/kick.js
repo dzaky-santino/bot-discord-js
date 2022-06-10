@@ -7,19 +7,19 @@ module.exports = {
 	usage: "/kick",
 	options: [{
 			name: "user",
-			description: "Pilih Member Untuk Di Kick",
+			description: "Choose Member To Kick",
 			type: "USER",
 			required: true
 		},
 		{
 			name: "reason",
-			description: "Berikan Alasan Member Di Kick",
+			description: "Give Reasons For Members To Kick",
 			type: "STRING",
 			required: true
 		},
 		{
 			name: "messages",
-			description: "Berikan Jumlah Hari Untuk Menghapus Pesan Member",
+			description: "Give Number of Days To Delete Member Message",
 			type: "STRING",
 			required: false,
 			choices: [{

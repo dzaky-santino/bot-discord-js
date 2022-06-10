@@ -4,6 +4,7 @@ const wait = require('util').promisify(setTimeout);
 module.exports = {
     name: "remind",
     description: "Set a reminder!",
+    permission: "SEND_MESSAGES",
     usage: "/remind",
     options: [
         {

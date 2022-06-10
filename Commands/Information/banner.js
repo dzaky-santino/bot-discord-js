@@ -3,6 +3,7 @@ const { CommandInteraction, MessageEmbed } = require("discord.js");
 module.exports = {
     name: "banner",
     description: "Viewing User Banner",
+    permission: "SEND_MESSAGES",
     usage: "/banner",
     options: [
         {
