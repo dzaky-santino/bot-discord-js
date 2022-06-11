@@ -1,6 +1,7 @@
 const { Client } = require("discord.js");
 const arrayOfStatus = [
     'Bot Official Of Rumah Kedua.',
+    'Bot Backup',
     '/helps',
 ]
 
