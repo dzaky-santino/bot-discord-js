@@ -15,7 +15,7 @@ module.exports = {
 			name: "reason",
 			description: "Give Reasons For Members To Kick",
 			type: "STRING",
-			required: true
+			required: false
 		},
 		{
 			name: "messages",
